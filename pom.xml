@@ -4,6 +4,7 @@
 	<groupId>com.testautomation</groupId>
 	<artifactId>com.testautomation</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
 	<properties>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -32,6 +33,7 @@
 						<!-- TestNG suite XML files -->
 						<suiteXmlFile>MC_Sanity_TestSuite.xml</suiteXmlFile>
 					</suiteXmlFiles>
+					<testFailureIgnore>false</testFailureIgnore>
 				</configuration>
 			</plugin>
 		</plugins>
