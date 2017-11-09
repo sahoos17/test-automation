@@ -1,4 +1,4 @@
-package mastercard.dwp.testauto.testcases;
+package test.testauto.testcases;
 
 import java.util.concurrent.TimeUnit;
 
