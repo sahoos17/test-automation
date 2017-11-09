@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="Test(failed)">
+    <classes>
+      <class name="test.testauto.testcases.TC_MC_LoginLogout">
+        <methods>
+          <include name="MC_Login_PoC_WebPart"/>
+        </methods>
+      </class> <!-- test.testauto.testcases.TC_MC_LoginLogout -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

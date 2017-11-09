@@ -2,12 +2,12 @@ package test.testauto.testcases;
 
 import java.util.concurrent.TimeUnit;
 
-
-import org.junit.Test;
+//import org.junit.Test;
 //import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+//import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.annotations.Test;
 
 //import com.relevantcodes.extentreports.ExtentReports;
 //import com.relevantcodes.extentreports.ExtentTest;
@@ -37,22 +37,22 @@ public class TC_MC_LoginLogout //extends BaseTest
 		 
 		//logger=report.startTest("VerifyImageLibrary");
 
-		//String exePath = "driver\\chromedriver.exe";
-		//System.setProperty("webdriver.chrome.driver", exePath);
-		//WebDriver driver = new InternetExplorerDriver();
+		String exePath = "driver\\chromedriver.exe";
+		System.setProperty("webdriver.chrome.driver", exePath);
+		WebDriver driver = new ChromeDriver();
 		//logger.log(LogStatus.INFO, "Browser started ");
 
 		
-		String exePath = "IEDriverServer64.exe";
-		System.setProperty("webdriver.ie.driver", exePath);
-		WebDriver driver=new InternetExplorerDriver();
+		//String exePath = "driver\\IEDriverServer.exe";
+		//System.setProperty("webdriver.ie.driver", exePath);
+		//WebDriver driver=new InternetExplorerDriver();
 		
 
 		/*
 		String exePath = "driver\\geckodriver.exe";
 		System.setProperty("webdriver.gecko.driver", exePath);
 		WebDriver driver = new FirefoxDriver();
-		 */
+		*/
 		
 		//Maximize browser
 		driver.manage().window().maximize();
