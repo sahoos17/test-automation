@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 //import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 //import com.relevantcodes.extentreports.ExtentReports;
@@ -104,33 +105,7 @@ public class TC_MC_LoginLogout //extends BaseTest
 	{
 
 
-		/*
-		String exePath = "driver\\chromedriver.exe";
-		System.setProperty("webdriver.chrome.driver", exePath);
-		WebDriver driver = new ChromeDriver();
-		*/
-
-
-		
-		String exePath = "driver\\IEDriverServer.exe";
-		System.setProperty("webdriver.ie.driver", exePath);
-		WebDriver driver=new InternetExplorerDriver();
-		
-
-		/*
-		String exePath = "driver\\geckodriver.exe";
-		System.setProperty("webdriver.gecko.driver", exePath);
-		WebDriver driver = new FirefoxDriver();
-		*/
-		
-		//Maximize browser
-		driver.manage().window().maximize();
-
-		driver.get("https://dev.sharepoint.com");
-			
-		
-		
-		driver.quit();
+		Assert.assertEquals(12, 13);
 
 	}
 	
@@ -139,33 +114,7 @@ public class TC_MC_LoginLogout //extends BaseTest
 	{
 
 
-		/*
-		String exePath = "driver\\chromedriver.exe";
-		System.setProperty("webdriver.chrome.driver", exePath);
-		WebDriver driver = new ChromeDriver();
-		*/
-
-
-		
-		String exePath = "driver\\IEDriverServer.exe";
-		System.setProperty("webdriver.ie.driver", exePath);
-		WebDriver driver=new InternetExplorerDriver();
-		
-
-		/*
-		String exePath = "driver\\geckodriver.exe";
-		System.setProperty("webdriver.gecko.driver", exePath);
-		WebDriver driver = new FirefoxDriver();
-		*/
-		
-		//Maximize browser
-		driver.manage().window().maximize();
-
-		driver.get("https://dev.sharepoint.com");
-			
-		
-		
-		driver.quit();
+		Assert.assertEquals(13, 15);
 
 	}
 
