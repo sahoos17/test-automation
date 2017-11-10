@@ -98,5 +98,75 @@ public class TC_MC_LoginLogout //extends BaseTest
 		driver.quit();
 
 	}
+	
+	@Test
+	public void MC_Login_PoC_WebPart1()
+	{
+
+
+		/*
+		String exePath = "driver\\chromedriver.exe";
+		System.setProperty("webdriver.chrome.driver", exePath);
+		WebDriver driver = new ChromeDriver();
+		*/
+
+
+		
+		String exePath = "driver\\IEDriverServer.exe";
+		System.setProperty("webdriver.ie.driver", exePath);
+		WebDriver driver=new InternetExplorerDriver();
+		
+
+		/*
+		String exePath = "driver\\geckodriver.exe";
+		System.setProperty("webdriver.gecko.driver", exePath);
+		WebDriver driver = new FirefoxDriver();
+		*/
+		
+		//Maximize browser
+		driver.manage().window().maximize();
+
+		driver.get("https://dev.sharepoint.com");
+			
+		
+		
+		driver.quit();
+
+	}
+	
+	@Test
+	public void MC_Login_PoC_WebPart2()
+	{
+
+
+		/*
+		String exePath = "driver\\chromedriver.exe";
+		System.setProperty("webdriver.chrome.driver", exePath);
+		WebDriver driver = new ChromeDriver();
+		*/
+
+
+		
+		String exePath = "driver\\IEDriverServer.exe";
+		System.setProperty("webdriver.ie.driver", exePath);
+		WebDriver driver=new InternetExplorerDriver();
+		
+
+		/*
+		String exePath = "driver\\geckodriver.exe";
+		System.setProperty("webdriver.gecko.driver", exePath);
+		WebDriver driver = new FirefoxDriver();
+		*/
+		
+		//Maximize browser
+		driver.manage().window().maximize();
+
+		driver.get("https://dev.sharepoint.com");
+			
+		
+		
+		driver.quit();
+
+	}
 
 }
