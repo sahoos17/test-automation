@@ -103,8 +103,6 @@ public class TC_MC_LoginLogout //extends BaseTest
 	@Test
 	public void MC_Login_PoC_WebPart1()
 	{
-
-
 		Assert.assertEquals(12, 13);
 
 	}
@@ -112,8 +110,6 @@ public class TC_MC_LoginLogout //extends BaseTest
 	@Test
 	public void MC_Login_PoC_WebPart2()
 	{
-
-
 		Assert.assertEquals(13, 15);
 
 	}
