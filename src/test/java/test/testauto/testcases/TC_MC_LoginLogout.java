@@ -1,7 +1,6 @@
 package test.testauto.testcases;
 
-import java.util.concurrent.TimeUnit;
-
+//import java.util.concurrent.TimeUnit;
 //import org.junit.Test;
 //import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,9 +9,9 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-//import com.relevantcodes.extentreports.ExtentReports;
-//import com.relevantcodes.extentreports.ExtentTest;
-//import com.relevantcodes.extentreports.LogStatus;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 
 /*
  * @author Saroj Sahoo
@@ -27,16 +26,16 @@ import org.testng.annotations.Test;
 
 public class TC_MC_LoginLogout //extends BaseTest
 {
-	//ExtentReports report;
-	//ExtentTest logger; 
+	ExtentReports report;
+	ExtentTest logger; 
 
 	@Test
 	public void MC_Login_PoC_WebPart() throws Exception
 	{
 
-		//report=new ExtentReports("report\\TR_VerifyImageLibrary.html");
+		report=new ExtentReports("report\\MC_Sanity_TestResult.html");
 		 
-		//logger=report.startTest("VerifyImageLibrary");
+		logger=report.startTest("VerifyLogin");
 		/*
 		String exePath = "driver\\chromedriver.exe";
 		System.setProperty("webdriver.chrome.driver", exePath);
@@ -48,7 +47,7 @@ public class TC_MC_LoginLogout //extends BaseTest
 		String exePath = "driver\\IEDriverServer.exe";
 		System.setProperty("webdriver.ie.driver", exePath);
 		WebDriver driver=new InternetExplorerDriver();
-		
+		logger.log(LogStatus.PASS, "Browser started ");
 
 		/*
 		String exePath = "driver\\geckodriver.exe";
@@ -58,12 +57,12 @@ public class TC_MC_LoginLogout //extends BaseTest
 		
 		//Maximize browser
 		driver.manage().window().maximize();
-		//logger.log(LogStatus.INFO, "Browser maximized ");
+		logger.log(LogStatus.INFO, "Browser maximized ");
 
 		driver.get("https://dev.sharepoint.com");
-		//logger.log(LogStatus.INFO, "Application is up and running");
+		logger.log(LogStatus.PASS, "Application is up and running");
 		
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		//User Name
 		//driver.findElement(By.id("cred_userid_inputtext")).sendKeys("test1@dev.com");
@@ -72,7 +71,7 @@ public class TC_MC_LoginLogout //extends BaseTest
 		//driver.findElement(By.id("cred_password_inputtext")).sendKeys("password123");
 
 		//Sign In
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 		//driver.findElement(By.id("cred_sign_in_button")).click();
 
 		//Click on Pages
@@ -92,9 +91,9 @@ public class TC_MC_LoginLogout //extends BaseTest
 		//driver.findElement(By.id("O365_SubLink_ShellSignout")).click();
 		//logger.log(LogStatus.INFO, "Signed Out");
 		
-		//report.endTest(logger);
-		//report.flush();
-		//driver.get("report\\MC_Regression_TestResult.html");
+		report.endTest(logger);
+		report.flush();
+		driver.get("report\\MC_Sanity_TestResult.html");
 		
 		driver.quit();
 
@@ -103,15 +102,43 @@ public class TC_MC_LoginLogout //extends BaseTest
 	@Test
 	public void MC_Login_PoC_WebPart1()
 	{
+		report=new ExtentReports("report\\MC_Sanity_TestResult1.html");
+		 
+		logger=report.startTest("VerifyMethod1");
+		
 		Assert.assertEquals(12, 13);
 
+
+		String exePath = "driver\\IEDriverServer.exe";
+		System.setProperty("webdriver.ie.driver", exePath);
+		WebDriver driver=new InternetExplorerDriver();
+		logger.log(LogStatus.PASS, "Browser started ");
+		
+		report.endTest(logger);
+		report.flush();
+		driver.get("report\\MC_Sanity_TestResult1.html");
+		driver.quit();
 	}
 	
 	@Test
 	public void MC_Login_PoC_WebPart2()
 	{
-		Assert.assertEquals(13, 15);
+		report=new ExtentReports("report\\MC_Sanity_TestResult2.html");
+		 
+		logger=report.startTest("VerifyMethod2");
+		
+		Assert.assertEquals(14, 166);
 
+
+		String exePath = "driver\\IEDriverServer.exe";
+		System.setProperty("webdriver.ie.driver", exePath);
+		WebDriver driver=new InternetExplorerDriver();
+		logger.log(LogStatus.PASS, "Browser started ");
+		
+		report.endTest(logger);
+		report.flush();
+		driver.get("report\\MC_Sanity_TestResult1.html");
+		driver.quit();
 	}
 
 }
