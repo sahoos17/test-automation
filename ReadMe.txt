@@ -31,4 +31,5 @@ https://marketplace.visualstudio.com/items?itemName=ms.vss-testmanager-web
 
 Maven:
 https://maven.apache.org/download.cgi
+https://archive.apache.org/dist/maven/maven-3/3.2.2/binaries/
 
