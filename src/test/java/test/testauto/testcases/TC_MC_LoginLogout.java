@@ -4,18 +4,19 @@ package test.testauto.testcases;
 //import org.junit.Test;
 //import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.firefox.internal.ProfilesIni;
-import org.testng.Assert;
-import org.testng.annotations.Parameters;
+
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+
+import test.testauto.utils.CaptureScreenShots;
 
 /*
  * @author Saroj Sahoo
@@ -33,43 +34,27 @@ public class TC_MC_LoginLogout //extends BaseTest
 	ExtentReports report;
 	ExtentTest logger; 
 	WebDriver driver;
+	protected static DesiredCapabilities dCaps;
 
 	@Test
-	@Parameters("browser")
-	public void MC_Login_PoC_WebPart(String browserName) throws Exception
+	public void MC_Login_PoC_WebPart() throws Exception
 	{
 
 		report=new ExtentReports("report\\MC_Sanity_TestResult.html");
 
 		logger=report.startTest("VerifyLogin");
 
-		if(browserName.equalsIgnoreCase("chrome"))
-		{
-			String exePath = "driver\\chromedriver.exe";
-			System.setProperty("webdriver.chrome.driver", exePath);
-			driver = new ChromeDriver();
-			logger.log(LogStatus.INFO, "Chrome Browser started ");
-		}
+		dCaps = new DesiredCapabilities();
+		dCaps.setJavascriptEnabled(true);
+		String exePath = "driver\\phantomjs.exe";
+		dCaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, exePath);
+		dCaps.setCapability("takesScreenshot", false);
+		
+		driver = new PhantomJSDriver(dCaps);
 
-		else if(browserName.equalsIgnoreCase("ie"))
-		{
-			String exePath = "driver\\IEDriverServer.exe";
-			System.setProperty("webdriver.ie.driver", exePath);
-			driver=new InternetExplorerDriver();
-			logger.log(LogStatus.PASS, "IE Browser started ");
-		}
 
-		else if(browserName.equalsIgnoreCase("firefox"))
-		{
-			ProfilesIni profile = new ProfilesIni();
+		logger.log(LogStatus.INFO, " Browser started ");
 
-			FirefoxProfile firefoxProfile = profile.getProfile("QAProfile");
-			
-			String exePath = "driver\\geckodriver.exe";
-			System.setProperty("webdriver.gecko.driver", exePath);
-			driver = new FirefoxDriver(firefoxProfile);
-			logger.log(LogStatus.PASS, "Firefox Browser started ");
-		}
 
 		//Maximize browser
 		driver.manage().window().maximize();
@@ -77,6 +62,8 @@ public class TC_MC_LoginLogout //extends BaseTest
 
 		driver.get("https://dev.sharepoint.com");
 		logger.log(LogStatus.PASS, "Application is up and running");
+		
+		CaptureScreenShots.captureScreenShot(driver, "PhantomJS Test");
 
 		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -110,21 +97,27 @@ public class TC_MC_LoginLogout //extends BaseTest
 		report.flush();
 		driver.get("report\\MC_Sanity_TestResult.html");
 		Thread.sleep(10000);
-		
+
 		driver.quit();
 		//driver.close();
 	}
 
-	@Test(enabled = false)
-	public void MC_Login_PoC_WebPart1()
+	@Test
+	public void verifyFailTC01()
 	{
-		Assert.assertEquals(12, 13);
+		SoftAssert assertion=new SoftAssert();
+		assertion.assertEquals(12, 13);
+		System.out.println("Test 1 Failed");
+		
 	}
-
-	@Test(enabled = false)
-	public void MC_Login_PoC_WebPart2()
+	
+	@Test
+	public void verifyFailTC02()
 	{
-		Assert.assertEquals(14, 166);
+		SoftAssert assertion=new SoftAssert();
+		assertion.assertEquals(15, 13);
+		System.out.println("Test 2 Failed");
 	}
+	
 
 }
