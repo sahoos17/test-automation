@@ -32,6 +32,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Program Files (x86)/Java/jdk1.8.0_151/lib/tools.jar"/>
+	<classpathentry kind="lib" path="C:/GitHub/test-automation/jars/tools.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
