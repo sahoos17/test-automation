@@ -21,15 +21,18 @@ import test.testauto.utils.CaptureScreenShots;
 /*
  * @author Saroj Sahoo
  * 
- * This is for PoC.
- * Test script execution within one file. Segregation is not done.
+ * This is for PoC. Hence only page open is verified.
+ * This is without actual dev tenant details.
  * 
- * Verify the related file is present in Image library.
+ * Also user credential is not provided as it's in public GitHub.
+ * 
+ * Test is configured to execute with PhantmJS headless browser.
+ * 
  * 
  */
 
 
-public class TC_MC_LoginLogout //extends BaseTest
+public class TC_MC_LoginLogout
 {
 	ExtentReports report;
 	ExtentTest logger; 
@@ -107,7 +110,7 @@ public class TC_MC_LoginLogout //extends BaseTest
 	{
 		SoftAssert assertion=new SoftAssert();
 		assertion.assertEquals(12, 13);
-		System.out.println("Test 1 Failed");
+		System.out.println("Test 1 is Failed");
 		
 	}
 	
@@ -115,8 +118,8 @@ public class TC_MC_LoginLogout //extends BaseTest
 	public void verifyFailTC02()
 	{
 		SoftAssert assertion=new SoftAssert();
-		assertion.assertEquals(15, 13);
-		System.out.println("Test 2 Failed");
+		assertion.assertEquals(15, 15);
+		System.out.println("Test 2 is Successed");
 	}
 	
 
