@@ -43,7 +43,7 @@ public class TC_MC_LoginLogout
 	public void MC_Login_PoC_WebPart() throws Exception
 	{
 
-		report=new ExtentReports("report\\MC_Sanity_TestResult.html");
+		report=new ExtentReports("report\\MC_Sanity_PhantomJS_TestResult.html");
 
 		logger=report.startTest("VerifyLogin");
 
@@ -95,7 +95,7 @@ public class TC_MC_LoginLogout
 
 		report.endTest(logger);
 		report.flush();
-		driver.get("report\\MC_Sanity_TestResult.html");
+		driver.get("report\\MC_Sanity_PhantomJS_TestResult.html");
 		Thread.sleep(10000);
 	}
 

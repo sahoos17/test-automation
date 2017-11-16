@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <parameter name="browser" value="Firefox"/>
+  <test name="Test_IE(failed)">
+    <parameter name="browser" value="IE"/>
+    <classes>
+      <class name="test.testauto.testcases.TC_MC_LoginLogout_CrossBrowser">
+        <methods>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="MC_Login_PoC_WebPart" invocation-numbers="0"/>
+          <include name="MC_Login_PoC_WebPart1"/>
+        </methods>
+      </class> <!-- test.testauto.testcases.TC_MC_LoginLogout_CrossBrowser -->
+    </classes>
+  </test> <!-- Test_IE(failed) -->
+  <test name="Test_Chrome(failed)">
+    <parameter name="browser" value="Chrome"/>
+    <classes>
+      <class name="test.testauto.testcases.TC_MC_LoginLogout_CrossBrowser">
+        <methods>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="MC_Login_PoC_WebPart" invocation-numbers="0"/>
+          <include name="MC_Login_PoC_WebPart1"/>
+        </methods>
+      </class> <!-- test.testauto.testcases.TC_MC_LoginLogout_CrossBrowser -->
+    </classes>
+  </test> <!-- Test_Chrome(failed) -->
+  <test name="Test_Firefox(failed)">
+    <parameter name="browser" value="Firefox"/>
+    <classes>
+      <class name="test.testauto.testcases.TC_MC_LoginLogout_CrossBrowser">
+        <methods>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="MC_Login_PoC_WebPart" invocation-numbers="0"/>
+          <include name="MC_Login_PoC_WebPart1"/>
+        </methods>
+      </class> <!-- test.testauto.testcases.TC_MC_LoginLogout_CrossBrowser -->
+    </classes>
+  </test> <!-- Test_Firefox(failed) -->
+</suite> <!-- Failed suite [Suite] -->

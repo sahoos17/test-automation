@@ -6,6 +6,7 @@ package test.testauto.testcases;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.internal.ProfilesIni;
@@ -40,7 +41,7 @@ public class TC_MC_LoginLogout_CrossBrowser //extends BaseTest
 	public void MC_Login_PoC_WebPart(String browserName) throws Exception
 	{
 
-		report=new ExtentReports("report\\MC_Sanity_TestResult.html");
+		report=new ExtentReports("report\\MC_Sanity_"+browserName+"_TestResult.html");
 
 		logger=report.startTest("VerifyLogin");
 
@@ -54,6 +55,7 @@ public class TC_MC_LoginLogout_CrossBrowser //extends BaseTest
 
 		else if(browserName.equalsIgnoreCase("ie"))
 		{
+					
 			String exePath = "driver\\IEDriverServer.exe";
 			System.setProperty("webdriver.ie.driver", exePath);
 			driver=new InternetExplorerDriver();
@@ -62,13 +64,10 @@ public class TC_MC_LoginLogout_CrossBrowser //extends BaseTest
 
 		else if(browserName.equalsIgnoreCase("firefox"))
 		{
-			ProfilesIni profile = new ProfilesIni();
-
-			FirefoxProfile firefoxProfile = profile.getProfile("QAProfile");
-			
+						
 			String exePath = "driver\\geckodriver.exe";
 			System.setProperty("webdriver.gecko.driver", exePath);
-			driver = new FirefoxDriver(firefoxProfile);
+			driver = new FirefoxDriver();
 			logger.log(LogStatus.PASS, "Firefox Browser started ");
 		}
 
@@ -110,7 +109,7 @@ public class TC_MC_LoginLogout_CrossBrowser //extends BaseTest
 		report.endTest(logger);
 		report.flush();
 		Thread.sleep(5000);
-		driver.get("report\\MC_Sanity_TestResult.html");
+		driver.get("report\\MC_Sanity_"+browserName+"_TestResult.html");
 	}
 
 	//@Test(enabled = false)
