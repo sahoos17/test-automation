@@ -10,6 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -108,11 +109,8 @@ public class TC_MC_LoginLogout_CrossBrowser //extends BaseTest
 
 		report.endTest(logger);
 		report.flush();
+		Thread.sleep(5000);
 		driver.get("report\\MC_Sanity_TestResult.html");
-		Thread.sleep(10000);
-		
-		driver.quit();
-		//driver.close();
 	}
 
 	//@Test(enabled = false)
@@ -127,5 +125,11 @@ public class TC_MC_LoginLogout_CrossBrowser //extends BaseTest
 	{
 		Assert.assertEquals(14, 166);
 	}
-
+	
+	@AfterTest
+	public void tearDown() {
+		System.out.println("Driver session end");
+		driver.quit();
+	}
+	
 }

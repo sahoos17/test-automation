@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -54,10 +54,8 @@ public class TC_MC_LoginLogout
 		dCaps.setCapability("takesScreenshot", false);
 		
 		driver = new PhantomJSDriver(dCaps);
-
-
 		logger.log(LogStatus.INFO, " Browser started ");
-
+		CaptureScreenShots.captureScreenShot(driver, "01_PhantomJS_Driver_Started");
 
 		//Maximize browser
 		driver.manage().window().maximize();
@@ -65,8 +63,7 @@ public class TC_MC_LoginLogout
 
 		driver.get("https://dev.sharepoint.com");
 		logger.log(LogStatus.PASS, "Application is up and running");
-		
-		CaptureScreenShots.captureScreenShot(driver, "PhantomJS Test");
+		CaptureScreenShots.captureScreenShot(driver, "02_PhantomJS_AppIsUp");
 
 		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -100,9 +97,6 @@ public class TC_MC_LoginLogout
 		report.flush();
 		driver.get("report\\MC_Sanity_TestResult.html");
 		Thread.sleep(10000);
-
-		driver.quit();
-		//driver.close();
 	}
 
 	@Test
@@ -122,5 +116,10 @@ public class TC_MC_LoginLogout
 		System.out.println("Test 2 is Successed");
 	}
 	
+	@AfterTest
+	public void tearDown() {
+		System.out.println("Driver session end");
+		driver.quit();
+	}
 
 }
